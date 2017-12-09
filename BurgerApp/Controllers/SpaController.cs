@@ -18,9 +18,18 @@ namespace BurgerApp.Controllers
         [HttpPost]
         public JsonResult PostOrders([FromBody] JObject order)
         {
-            var name = _firebase.Post("orders", order.ToString());
+            var name = _firebase.Post("orders", order);
 
             return Json(new { name });
+        }
+
+        [Route("ingredients.json")]
+        [HttpGet]
+        public JsonResult GetIngredients()
+        {
+            var ingredients = _firebase.Get("ingredients");
+
+            return Json(ingredients);
         }
 
         private IFirebase _firebase;

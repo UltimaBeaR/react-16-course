@@ -60,8 +60,8 @@ namespace BurgerApp
                     defaults: new { controller = "Home", action = "Index" });
             });
 
-            // Create database schema if there is no existing database found
-            firebaseContext.Database.EnsureCreated();
+            // Init database
+            firebaseContext.Initialize();
         }
     }
 }
