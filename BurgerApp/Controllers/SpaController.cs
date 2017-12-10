@@ -15,6 +15,11 @@ namespace BurgerApp.Controllers
         }
 
         [Route("orders.json")]
+        [HttpGet]
+        public JsonResult GetOrders()
+            => Json(_firebase.Get("orders"));
+
+        [Route("orders.json")]
         [HttpPost]
         public JsonResult PostOrders([FromBody] JObject order)
         {
@@ -26,11 +31,7 @@ namespace BurgerApp.Controllers
         [Route("ingredients.json")]
         [HttpGet]
         public JsonResult GetIngredients()
-        {
-            var ingredients = _firebase.Get("ingredients");
-
-            return Json(ingredients);
-        }
+            => Json(_firebase.Get("ingredients"));
 
         private IFirebase _firebase;
     }
