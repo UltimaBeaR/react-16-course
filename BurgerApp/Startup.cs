@@ -1,6 +1,8 @@
+using BurgerApp.Database;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.SpaServices.Webpack;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 
@@ -19,10 +21,17 @@ namespace BurgerApp
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddMvc();
+
+            // Configure database (it's sitting on localDb sql server instance) for FirebaseEmulator
+            services.AddDbContext<FirebaseEmulator.FirebaseContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("BurgerApp")));
+
+            // Add Firebase service (which is firebase emulator)
+            services.AddTransient<IFirebase, FirebaseEmulator>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, FirebaseEmulator.FirebaseContext firebaseContext)
         {
             if (env.IsDevelopment())
             {
@@ -50,6 +59,9 @@ namespace BurgerApp
                     name: "spa-fallback",
                     defaults: new { controller = "Home", action = "Index" });
             });
+
+            // Init database
+            firebaseContext.Initialize();
         }
     }
 }

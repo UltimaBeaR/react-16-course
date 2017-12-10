@@ -31,7 +31,10 @@ module.exports = (env) => {
                 'react', 'react-dom', 'react-router-dom',
 
                 // prop-types (react props validation)
-                'prop-types'
+                'prop-types',
+
+                // axios (ajax/http library)
+                'axios'
             ]
         },
         output: {
