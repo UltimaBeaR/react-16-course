@@ -11,8 +11,8 @@
     "axios": "0.17.1"
   },
   "devDependencies": {
-    "aspnet-webpack": "^2.0.1",
-    "aspnet-webpack-react": "^3.0.0",
+    "aspnet-webpack": "2.0.1",
+    "aspnet-webpack-react": "3.0.0",
     "babel-core": "6.26.0",
     "babel-loader": "7.1.2",
     "babel-preset-react-app": "3.1.0",
