@@ -2,14 +2,20 @@ import classes from './Input.css';
 
 import React from 'react';
 
-const input = ({ changed, label, elementType, elementConfig, value }) => {
+const input = ({ invalid, shouldValidate, touched, changed, label, elementType, elementConfig, value }) => {
     let inputElement = null;
+
+    const inputClasses = [classes.InputElement];
+
+    if (invalid && shouldValidate && touched) {
+        inputClasses.push(classes.Invalid);
+    }
 
     switch (elementType) {
         case ('textarea'):
             inputElement = (
                 <textarea
-                    className={classes.InputElement}
+                    className={inputClasses.join(' ')}
                     {...elementConfig}
                     value={value}
                     onChange={changed}
@@ -19,7 +25,7 @@ const input = ({ changed, label, elementType, elementConfig, value }) => {
         case ('select'):
             inputElement = (
                 <select
-                    className={classes.InputElement}
+                    className={inputClasses.join(' ')}
                     value={value}
                     onChange={changed}
                 >
@@ -34,7 +40,7 @@ const input = ({ changed, label, elementType, elementConfig, value }) => {
         default:
             inputElement = (
                 <input
-                    className={classes.InputElement}
+                    className={inputClasses.join(' ')}
                     {...elementConfig}
                     value={value}
                     onChange={changed}
