@@ -10,11 +10,6 @@ module.exports = {
         "react"
     ],
     "rules": {
-        "indent": [
-            "error",
-            4,
-            {"SwitchCase": 1}
-        ],
         "linebreak-style": [
             "error",
             "windows"
@@ -32,6 +27,8 @@ module.exports = {
         "react/jsx-uses-vars": "error",
 
         "no-console": "off",
-        "no-constant-condition": "off"
+        "no-constant-condition": "off",
+
+        "indent": "off"
     }
 };
