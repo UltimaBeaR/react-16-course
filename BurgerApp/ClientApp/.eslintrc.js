@@ -31,6 +31,7 @@ module.exports = {
 
         "indent": 0,
 
-        "no-unused-vars": 1
+        "no-unused-vars": 1,
+        "no-empty": 1
     }
 };
