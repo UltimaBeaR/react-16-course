@@ -28,13 +28,16 @@ module.exports = (env) => {
                 'event-source-polyfill', 'isomorphic-fetch',
 
                 // react
-                'react', 'react-dom', 'react-router-dom',
+                'react', 'react-dom', 'react-router-dom', "react-hot-loader",
 
                 // prop-types (react props validation)
                 'prop-types',
 
                 // axios (ajax/http library)
-                'axios'
+                'axios',
+
+                // redux
+                'redux', 'react-redux'
             ]
         },
         output: {

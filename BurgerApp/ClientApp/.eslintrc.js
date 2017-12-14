@@ -11,24 +11,26 @@ module.exports = {
     ],
     "rules": {
         "linebreak-style": [
-            "error",
+            2,
             "windows"
         ],
         "quotes": [
-            "error",
+            2,
             "single"
         ],
         "semi": [
-            "error",
+            2,
             "always"
         ],
 
-        "react/jsx-uses-react": "error",
-        "react/jsx-uses-vars": "error",
+        "react/jsx-uses-react": 2,
+        "react/jsx-uses-vars": 2,
 
-        "no-console": "off",
-        "no-constant-condition": "off",
+        "no-console": 0,
+        "no-constant-condition": 0,
 
-        "indent": "off"
+        "indent": 0,
+
+        "no-unused-vars": 1
     }
 };
