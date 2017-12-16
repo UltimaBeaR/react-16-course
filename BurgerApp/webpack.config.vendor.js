@@ -37,7 +37,10 @@ module.exports = (env) => {
                 'axios',
 
                 // redux
-                'redux', 'react-redux'
+                'redux', 'react-redux',
+
+                // redux helper libraries
+                "redux-thunk"
             ]
         },
         output: {
